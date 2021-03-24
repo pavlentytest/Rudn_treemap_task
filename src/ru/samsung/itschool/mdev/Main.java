@@ -13,7 +13,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         line = scan.nextLine();
 
-        scan.hasNext();
+        //scan.hasNext();
         while(!line.isEmpty()) {
             String[] result = line.split(" ");
             String name = result[0];
