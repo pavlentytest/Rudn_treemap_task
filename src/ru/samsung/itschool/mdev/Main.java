@@ -5,20 +5,13 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 public class Main {
-
     public static void main(String[] args) {
-
-        String line;
         TreeMap<String, TreeMap<String,Integer>> users = new TreeMap<>();
         Scanner scan = new Scanner(System.in);
-        line = scan.nextLine();
-
-        //scan.hasNext();
-        while(!line.isEmpty()) {
-            String[] result = line.split(" ");
-            String name = result[0];
-            String prod = result[1];
-            int count = Integer.parseInt(result[2]);
+        while(scan.hasNext()) {
+            String name = scan.next();
+            String prod = scan.next();
+            int count = scan.nextInt();
             if(users.containsKey(name)) {
                 TreeMap<String,Integer> user = users.get(name);
                 if(user.containsKey(prod)) {
@@ -32,11 +25,10 @@ public class Main {
                 user.put(prod, count);
                 users.put(name, user);
             }
-            line = scan.nextLine();
         }
 
         for(Map.Entry e: users.entrySet()) {
-            System.out.println(e.getKey() + " :");
+            System.out.println(e.getKey() + ":");
             TreeMap<String, Integer> user = (TreeMap)e.getValue();
             for(Map.Entry e1: user.entrySet()) {
                 System.out.println(e1.getKey() + " " + e1.getValue());
